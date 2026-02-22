@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+             http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="JPA-PU" transaction-type="RESOURCE_LOCAL">
+
+        <!-- Hibernate Provider -->
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+        <!-- ================= ENTITY CLASSES ================= -->
+
+        <class>com.crm.entity.Customer</class>
+        <class>com.crm.entity.Address</class>
+        <class>com.crm.entity.SalesEmployee</class>
+        <class>com.crm.entity.Lead</class>
+        <class>com.crm.entity.Product</class>
+        <class>com.crm.entity.Order</class>
+        <class>com.crm.entity.SupportTicket</class>
+
+        <!-- ================= DATABASE PROPERTIES ================= -->
+
+        <properties>
+
+            <!-- JDBC Configuration -->
+            <property name="javax.persistence.jdbc.driver"
+                      value="oracle.jdbc.driver.OracleDriver"/>
+
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:oracle:thin:@localhost:1521:XE"/>
+
+            <property name="javax.persistence.jdbc.user"
+                      value="scott"/>
+
+            <property name="javax.persistence.jdbc.password"
+                      value="tiger"/>
+
+            <!-- Hibernate Dialect -->
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.Oracle10gDialect"/>
+
+            <!-- Auto Table Creation -->
+            <!-- create  → Drops & recreates tables every run -->
+            <!-- update  → Updates schema without deleting data -->
+            <property name="hibernate.hbm2ddl.auto"
+                      value="create"/>
+
+            <!-- Show SQL in Console -->
+            <property name="hibernate.show_sql"
+                      value="true"/>
+
+            <!-- Format SQL -->
+            <property name="hibernate.format_sql"
+                      value="true"/>
+
+            <!-- Disable Validation -->
+            <property name="javax.persistence.validation.mode"
+                      value="none"/>
+
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
